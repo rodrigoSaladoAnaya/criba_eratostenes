@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prime Generator</title>
+    <style>
+      #container {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .composed {
+        background: #d7dce3 !important;
+        color: #ababab !important;
+      }
+      .prime {
+        background: #edd08c !important;
+        color: #000 !important;
+      }
+      .number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10px;
+        border: 1px solid #7c8da3;
+        font-size: 9px;
+        margin: 2px;
+        color: #d5d5d5;
+      }
+      #findNext {
+        display: none;
+      }
+      button {
+        width: 45px;
+        height: 45px;
+        background: #ffffff;
+        border: 1px soild #98c1c3;
+        border-radius: 100%;
+        cursor: pointer;
+      }
+      input {
+        width: 60px;
+        height: 35px;
+        background: #ffffff;
+        border: 1px soild #98c1c3;
+        border-radius: 4px;
+        font-size: 20px;
+      }
+      .controls {
+        width: 100vw;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .controls > * {
+        font-family: "Bodoni MT",Didot,"Didot LT STD","Hoefler Text",Garamond,"Times New Roman",serif;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <input id="limit" value="1000">
+      <button id="go">Go!</button>
+      <button id="findNext"></button>
+    </div>
+    <div id="container"></div>
+  </body>
+  <script src="jquery.min.js"></script>
+  <script src="index.js"></script>
+</html>
