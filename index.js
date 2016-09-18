@@ -13,7 +13,7 @@ const searchComposed = function(atom) {
   }
 
   for(let i = next; i < limit; i+=atom) {
-    setNumAsComposed(i);
+    setNumAsComposed(i, atom);
   }
 }
 
@@ -24,17 +24,23 @@ const setAtomAsPrime = function() {
 
 const setEvensAsComposed = function() {
   for(let i = 4; i <= limit; i+=2) {
-    setNumAsComposed(i);
+    setNumAsComposed(i, 2);
   }
 }
 
-const setNumAsComposed = function(i) {
-  $("#n"+i).addClass('composed').attr("status", 'composed');
+const setNumAsComposed = function(i, p) {
+  $("#n"+i).addClass('composed').attr("status", 'composed').attr("multipleof", "n" + p);
 }
 
 const setNumAsPrime = function(i) {
-  $("#n"+i).addClass('prime').attr("status", 'prime');
+  $("#n"+i).addClass('prime').attr("status", 'prime').attr("multipleof", "n" + i);
   $("#lastPrime").html(i);
+  $("#container").on("mouseenter", "div[multipleof='n"+i+"']", function() {
+    $("div[multipleof='n"+i+"']").addClass("grp");
+  }).on("mouseleave", "div[multipleof='n"+i+"']", function() {
+    console.log(this)
+    $("div[multipleof='n"+i+"']").removeClass("grp");
+  });
 }
 
 const findNextPrime = function() {
