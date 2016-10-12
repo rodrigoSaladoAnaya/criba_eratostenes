@@ -1,7 +1,7 @@
-let limit
+let limit;
 
 const searchComposed = function(atom) {
-  let next = atom*atom
+  let next = atom*atom;
   let sqrt = Math.sqrt(limit);
   if(atom >= sqrt) {
     const pending = $('div[status="pending"]');
@@ -34,11 +34,9 @@ const setNumAsComposed = function(i, p) {
 
 const setNumAsPrime = function(i) {
   $("#n"+i).addClass('prime').attr("status", 'prime').attr("multipleof", "n" + i);
-  $("#lastPrime").html(i);
   $("#container").on("mouseenter", "div[multipleof='n"+i+"']", function() {
     $("div[multipleof='n"+i+"']").addClass("grp");
   }).on("mouseleave", "div[multipleof='n"+i+"']", function() {
-    console.log(this)
     $("div[multipleof='n"+i+"']").removeClass("grp");
   });
 }

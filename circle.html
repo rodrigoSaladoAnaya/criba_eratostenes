@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prime Generator</title>
+    <style>
+      circle {
+        fill: #fff;
+        stroke-width: 1px;
+      }
+      .composed {
+        stroke: #ddd;
+      }
+      .prime {
+        stroke: #ed6e46;
+      }
+      #container {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="container">
+    </svg>
+  </body>
+  <script src="jquery.min.js"></script>
+  <script src="index.js"></script>
+  <script>
+    $(document).ready(function() {
+      const container = $("#container");
+      const pow = 4;
+      const size = 50;
+      const size_pow = size * pow;
+      container.attr("width", size_pow);
+      container.attr("height", size_pow);
+      container.attr("viewBox", "0 0 " + size + " " + size);
+      for(let i = 1; i <= size; i++) {
+        const circle = $("<circle/>", {
+          id: 'c' + i,
+          class: 'composed',
+          cx: 0,
+          cy: 0,
+          r: i * pow
+        });
+        container.prepend(circle);
+      }
+      container.html(container.html());
+    });
+  </script>
+</html>
